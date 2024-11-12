@@ -1,4 +1,4 @@
-package ch2.operation
+package ch2
 
 import java.util.*
 
