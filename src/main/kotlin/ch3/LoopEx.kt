@@ -29,3 +29,15 @@ fun main() {
     println(intArray2.contentToString())
 
 }
+
+// 중첩 반복문에서의 label 활용 (label@)
+fun indexOf(subArray: IntArray, array: IntArray): Int {
+    outerLoop@ for (i in array.indices) {
+        for (j in subArray.indices) {
+            if (subArray[j] != array[i + j]) continue@outerLoop
+        }
+        return i
+    }
+
+    return -1
+}
