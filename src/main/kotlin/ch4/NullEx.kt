@@ -47,3 +47,14 @@ fun describeNumber(i: Int?): String = when(i) {
 
 // ||, && 연산의 오른쪽에서도 smart cast 작동한다.
 fun isSingleChar(str: String?): Boolean = str != null && str.length == 1
+
+// Null 안전한 호출 연산자
+fun readInt() = readLine()?.toInt()
+
+// 위 코드는 기본적으로 다음 함수와 같다.
+// 즉, 안전한 호출 연산자는 수신 객체가 널이면 일반적인 함수 호출처럼 작동, 그렇지 않으면 그냥 널을 돌려준다.
+fun readLineNullSafe(): Int? {
+    val tmp = readLine()
+
+    return if(tmp != null) tmp.toInt() else null
+}
